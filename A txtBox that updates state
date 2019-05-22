@@ -1,0 +1,45 @@
+// Class declaration, this is standard procedure
+// We specifically want to target the input property of this.state
+class ControlledInput extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      input: ''
+    };
+    
+    
+    // We bind the method to handle this change
+    // Hn
+  this.handleChange = this.handleChange.bind(this);
+    // change code above this line
+  }
+ 
+  // Create handleChange(event) method
+  // Our method is responsible for changing the state 
+  // Of input property, we do this by passing an event parameter 
+  // 
+  handleChange(event)
+  {
+    this.setState({
+      input: event.target.value
+    } );
+  }
+
+  // change code above this line
+  render() {
+    return (
+      <div>
+        { /* change code below this line */}
+        // This is a little vague to me, I need to further explore this. 
+        // Here is what I know
+        // value is whatever this.state.input is. 
+        // OnChange is the method in this inout that binds the method handleChange. 
+        // I would consider this the event. That gets passed to the methid
+        <input value={this.state.input} onChange={this.handleChange.bind(this)} />
+        { /* change code above this line */}
+        <h4>Controlled Input:</h4>
+        <p>{this.state.input}</p>
+      </div>
+    );
+  }
+};
