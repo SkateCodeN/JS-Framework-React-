@@ -1,0 +1,59 @@
+class MyApp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      inputValue: ''
+    }
+    // the method is binded to this.state
+    this.handleChange = this.handleChange.bind(this);
+  }
+  // Inputvalue changes as we input stuff on the form
+  handleChange(event) {
+    this.setState({
+      inputValue: event.target.value
+    });
+  }
+  render() {
+    return (
+       <div>
+        { /* change code below this line */ }
+        {/*This renders the child calss GetInput */}
+        <GetInput input={this.state.inputValue} handleChange={this.handleChange} />
+        <RenderInput input={this.state.inputValue} />
+        { /* change code above this line */ }
+       </div>
+    );
+  }
+};
+
+// This is a child class of our app class
+// 
+class GetInput extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h3>Get Input:</h3>
+        <input
+          value={this.props.input}
+          onChange={this.props.handleChange}/>
+      </div>
+    );
+  }
+};
+
+class RenderInput extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h3>Input Render:</h3>
+        <p>{this.props.input}</p>
+      </div>
+    );
+  }
+};
