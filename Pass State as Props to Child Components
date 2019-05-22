@@ -1,0 +1,33 @@
+class MyApp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: 'CamperBot'
+    }
+  }
+  render() {
+    return (
+       <div>
+        // Navbar takes in a variable name and assigns it to this.state.name (camperbot)
+         <Navbar name={this.state.name} />
+       </div>
+    );
+  }
+};
+
+class Navbar extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+    <div>
+      // The class Navbar is a child component of my app. as many apps will have many classes but only a parent 
+      // So calling this.props.name calls the parent this.state
+      <h1>Hello, my name is: {this.props.name}  </h1>
+    </div>
+    );
+  }
+};
+
+//Needs explination
